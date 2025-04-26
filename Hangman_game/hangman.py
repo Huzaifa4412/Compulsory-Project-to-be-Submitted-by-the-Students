@@ -201,7 +201,7 @@ def main():
         submit = st.form_submit_button("Submit Guess")
 
     if submit:
-        if guess.isalnum() or len(guess) != 1:
+        if guess.isalnum() and len(guess) != 1:
             st.error(
                 f"❌ Invalid input '{guess}'. Please enter a single alphabetic letter."
             )
