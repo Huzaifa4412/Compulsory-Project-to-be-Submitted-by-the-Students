@@ -7,4 +7,4 @@ requires-python = ">=3.13"
 dependencies = []
 
 [tool.uv.workspace]
-members = ["MadLibs"]
+members = ["MadLibs", "number_guessing_game_computer", "Hangman_game"]
