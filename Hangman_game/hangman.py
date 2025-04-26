@@ -185,7 +185,8 @@ def main():
 
     # Game continues
     st.subheader(f"Stage {6 - st.session_state.lives}")
-    st.text(hangman_stages[6 - st.session_state.lives])
+    stage = hangman_stages[6 - st.session_state.lives]
+    st.code(stage, language="")
     st.subheader("Current Word:")
     st.text(" ".join(st.session_state.guess_word))
     st.write(f"Word Length: {len(st.session_state.secret_word)} letters")
@@ -196,11 +197,11 @@ def main():
         )
 
     with st.form("guess_form"):
-        guess = st.text_input("Enter a letter: ").upper()
+        guess: str = st.text_input("Enter a letter: ").upper()
         submit = st.form_submit_button("Submit Guess")
 
     if submit:
-        if not guess.isalpha() or len(guess) != 1:
+        if guess.isalnum() or len(guess) != 1:
             st.error(
                 f"❌ Invalid input '{guess}'. Please enter a single alphabetic letter."
             )
